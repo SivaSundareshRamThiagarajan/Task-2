@@ -17,7 +17,7 @@ public class XYZ {
         Scanner scanner = new Scanner(System.in);
         Product[] products = new Product[5];
 
-        // Accepting product information from the user
+
         for (int i = 0; i < 5; i++) {
             System.out.println("Enter product " + (i + 1) + " information:");
             System.out.print("Product ID: ");
@@ -30,16 +30,15 @@ public class XYZ {
             products[i] = new Product(pid, price, quantity);
         }
 
-        // Finding PID of the product with the highest price
         int highestPricePid = findHighestPricePid(products);
         System.out.println("PID of the product with the highest price: " + highestPricePid);
 
-        // Calculating total amount spent on all products
+        // total amount spent
         double totalAmountSpent = calculateTotalAmountSpent(products);
         System.out.println("Total amount spent on all products: Rs." + totalAmountSpent);
     }
 
-    // Method to find PID of the product with the highest price
+    
     public static int findHighestPricePid(Product[] products) {
         int highestPricePid = -1;
         double maxPrice = Double.MIN_VALUE;
@@ -54,7 +53,7 @@ public class XYZ {
         return highestPricePid;
     }
 
-    // Method to calculate total amount spent on all products
+    
     public static double calculateTotalAmountSpent(Product[] products) {
         double totalAmountSpent = 0;
 
