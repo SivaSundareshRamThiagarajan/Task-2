@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+class Account {
+    private double balance;
+
+    public Account() {
+        this.balance = 0.0;
+    }
+
+    public Account(double initialBalance) {
+        if (initialBalance >= 0)
+            this.balance = initialBalance;
+        else {
+            this.balance = 0.0;
+        }
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            this.balance += amount;
+            System.out.println("Deposited Amount Rs." + amount );
+        } else {
+            System.out.println("Invalid ");
+        }
+    }
+    public void withdraw(double amount) {
+        if (amount > 0) {
+            if (amount <= this.balance) {
+                this.balance -= amount;
+                System.out.println("Withdrawn Amount Rs." + amount );
+            } else {
+                System.out.println("Insufficient balance.");
+            }
+        } else {
+            System.out.println("Invalid ");
+        }
+    }
+
+    public void displayBalance() {
+        System.out.println("Current Balance: Rs." + this.balance);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        Account account1 = new Account();
+        System.out.println("Account 1 initial balance: Rs.0");
+
+
+        System.out.print("Enter initial balance for account 2: Rs.");
+        double initialBalance = scanner.nextDouble();
+        Account account2 = new Account(initialBalance);
+        System.out.println("Account 2 initial balance: Rs." + initialBalance);
+
+        account1.deposit(2352523);
+        account2.deposit(143523);
+        account1.withdraw(436346);
+        account2.withdraw(325436);
+
+
+        account1.displayBalance();
+        account2.displayBalance();
+    }
+}
